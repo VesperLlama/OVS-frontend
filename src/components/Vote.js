@@ -2,7 +2,6 @@ import Axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { message } from "antd";
-import styled from "styled-components";
 
 const Vote = () => {
   const history = useHistory();
@@ -45,15 +44,15 @@ const Vote = () => {
   };
 
   return (
-    <Container>
-      <Head>
-        <Main> Vote for a party</Main>
-        <Note>
+    <div className="VoteContainer">
+      <div className="VoteHead">
+        <div className="VoteMain"> Vote for a party</div>
+        <div>
           Note : You will only be allowed to vote once and will not be able to
           change your decision.
-        </Note>
-      </Head>
-      <Parties>
+        </div>
+      </div>
+      <div className="VoteParties">
         <form method="POST">
           <table>
             <tr>
@@ -71,9 +70,11 @@ const Vote = () => {
                   onClick={(e) => setVote(e.target.value)}
                 />
               </td>
-              <td className="voteImage">
-                <img src="bjp.png" alt="bjp" />
-              </td>
+              <label htmlFor="bjp">
+                <td className="voteImage">
+                  <img src="bjp.png" alt="bjp" />
+                </td>
+              </label>
               <td>
                 <label htmlFor="bjp">BJP</label>
               </td>
@@ -88,11 +89,13 @@ const Vote = () => {
                   onClick={(e) => setVote(e.target.value)}
                 />
               </td>
-              <td className="voteImage">
-                <img src="congress.png" alt="" />
-              </td>
+              <label htmlFor="congress">
+                <td className="voteImage">
+                  <img src="congress.png" alt="" />
+                </td>
+              </label>
               <td>
-                <label htmlFor="congress">Congress</label>{" "}
+                <label htmlFor="congress">Congress</label>
               </td>
             </tr>
             <tr>
@@ -105,11 +108,13 @@ const Vote = () => {
                   onClick={(e) => setVote(e.target.value)}
                 />
               </td>
-              <td className="voteImage">
-                <img src="aap.png" alt="" />
-              </td>
+              <label htmlFor="aap">
+                <td className="voteImage">
+                  <img src="aap.png" alt="" />
+                </td>
+              </label>
               <td>
-                <label htmlFor="aap">Aam Aadmi Party</label>{" "}
+                <label htmlFor="aap">Aam Aadmi Party</label>
               </td>
             </tr>
             <tr>
@@ -122,11 +127,13 @@ const Vote = () => {
                   onClick={(e) => setVote(e.target.value)}
                 />
               </td>
-              <td className="voteImage">
-                <img src="inc.png" alt="" />
-              </td>
+              <label htmlFor="ncp">
+                <td className="voteImage">
+                  <img src="inc.png" alt="" />
+                </td>
+              </label>
               <td>
-                <label htmlFor="ncp">National Congress Party</label>{" "}
+                <label htmlFor="ncp">National Congress Party</label>
               </td>
             </tr>
             <tr>
@@ -139,89 +146,22 @@ const Vote = () => {
                   onClick={(e) => setVote(e.target.value)}
                 />
               </td>
-              <td className="voteImage">
-                <img src="inld.png" alt="" />
-              </td>
+              <label htmlFor="inld">
+                <td className="voteImage">
+                  <img src="inld.png" alt="" />
+                </td>
+              </label>
               <td>
-                <label htmlFor="inld">Indian National Lok Dal</label>{" "}
+                <label htmlFor="inld">Indian National Lok Dal</label>
               </td>
             </tr>
           </table>
 
           <button onClick={SubmitVote}>Vote</button>
         </form>
-      </Parties>
-    </Container>
+      </div>
+    </div>
   );
 };
 
 export default Vote;
-const Container = styled.div`
-  height: 79vh;
-  width: 100vw;
-`;
-const Head = styled.div`
-  width: 100%;
-  height: 10%;
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 0 1rem;
-  @media all and (max-width: 813px) {
-    height: 20%;
-  }
-
-  @media all and (max-width: 477px) {
-    font-size: 0.9rem;
-  }
-  @media all and (max-width: 349px) {
-    height: 30%;
-    font-size: 0.9rem;
-  }
-`;
-const Note = styled.div``;
-const Main = styled.div`
-  font-size: 1.6rem;
-  font-weight: bold;
-`;
-const Parties = styled.div`
-  width: 100%;
-  form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 3rem;
-    align-items: center;
-    width: 100%;
-
-    button {
-      width: 9rem;
-      height: 3rem;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
-      cursor: pointer;
-      border: none;
-      outline: none;
-    }
-  }
-
-  table {
-    font-family: arial, sans-serif;
-    width: 70%;
-  }
-
-  td,
-  th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 0px 1rem;
-
-    img {
-      width: 4.3rem;
-      height: 4rem;
-    }
-  }
-`;
