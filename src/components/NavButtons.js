@@ -19,12 +19,12 @@ const NavButtons = (props) => {
     return (
       <>
         <div className="register">
-          <NavLink exact activeClassName="active" to="/signup">
+          <NavLink exact className="navlink" activeClassName="active" to="/signup">
             Register
           </NavLink>
         </div>
         <div className="login">
-          <NavLink exact activeClassName="active" to="/signin">
+          <NavLink exact className="navlink" activeClassName="active" to="/signin">
             Login
           </NavLink>
         </div>
@@ -34,13 +34,14 @@ const NavButtons = (props) => {
     return (
       <>
         <div className="vote">
-          <NavLink exact activeClassName="active" to="/vote">
+          <NavLink exact className="navlink" activeClassName="active" to="/vote">
             Vote
           </NavLink>
         </div>
         <div className="logout">
           <NavLink
             exact
+            className="navlink"
             activeClassName="active"
             to="/signout"
             onClick={logout}
