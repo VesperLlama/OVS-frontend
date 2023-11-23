@@ -19,7 +19,7 @@ const Vote = () => {
       message.error("Please Select an option");
       history.push("/vote");
     } else {
-      Axios.post("http://localhost:4000/recordVote", data)
+      Axios.post(`${process.env.REACT_APP_API_URL}/recordVote`, data)
         .then((res) => {
           console.log(res);
           if (res.status === 200) {

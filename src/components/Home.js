@@ -5,7 +5,7 @@ const Home = () => {
   const [userData, setUserData] = useState({});
 
   const loadData = async (e) => {
-    Axios.get("http://localhost:4000/home")
+    Axios.get(`${process.env.REACT_APP_API_URL}/home`)
       .then((d) => setUserData(d.data))
       .catch((err) => console.log(err));
   };

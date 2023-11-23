@@ -27,7 +27,7 @@ const Login = () => {
     if (user[0] === "" || user[1] === "" || user[2] === "" || user[3] === "") {
       message.error("Fill in all the fields");
     } else {
-      Axios.post("http://localhost:4000/register", data)
+      Axios.post(`${process.env.REACT_APP_API_URL}/register`, data)
         .then((res) => {
           if (res.status === 200) {
             message.success(

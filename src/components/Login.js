@@ -20,7 +20,7 @@ const Login = () => {
     if (aadhar === "" || password === "") {
       message.error("Fill in all the fields");
     } else {
-      Axios.post("http://localhost:4000/login", data)
+      Axios.post(`${process.env.REACT_APP_API_URL}/login`, data)
         .then((res) => {
           console.log(res);
           if (res.status === 200 && res.data) {
