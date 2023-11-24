@@ -19,7 +19,6 @@ const Login = () => {
       password: user[1],
       mobileNo: user[2],
       aadharNo: user[3],
-      party: null,
       voteStatus: false,
     };
 
